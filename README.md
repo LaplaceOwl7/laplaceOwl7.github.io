@@ -1,33 +1,94 @@
-# CS 370 Reinforcement Learning Enhancement Project
-
-**Author:** Chad Salaets 
-**Date:** October 27th -> December 21st 2025  
-**Course:** CS 499 - Computer Science Capstone  
-**Artifact Source:** CS 370 - Current and Emerging Trends in Computer Science  
+# CS499 Computer Science Capstone Project
+### Enhancing and Integrating Software Systems Through Design, Algorithms, and Databases
 
 ---
 
-## Project Overview
+## Developer Information
+**Name:** Chad Salaets 
+**Program:** Bachelor of Science in Computer Science
 
-This is a continuation of project CS370 which was a reinforcement learning agent which demonstrated the algorithms commonly used in the machine learning. The goal was to train an intelligent agent capable of navigating a maze-like environment to locate a treasure. The agent learns optimal actions through iterative feedback, using Q-learning to maximize its cumulative reward.
+**Concentration:** Software Engineering  
 
-This project will be substantially revised to incorporate best practices into the code a full refactoring to object-oriented design by dividing the structure into classes and scripts. The algorithms will be expanded to improve training and provide an optional selection of algorithms. The development of a SQLite database to save configurations, training results, and parameters for closer inspection. Provide generous documentation and testing, and a pleasing dashboard for the user.
+**Institution:** Southern New Hampshire University (SNHU)  
 
-## Project Analysis:
+**Course:** CS-499: Computer Science Capstone  
 
-### Software Revising Steps
 
-Status: Not Started
-
-### Algorithmic Overhaul and Data Structure Manipulation
-
-Status: Not Started
-
-### Database Development
-
-Status: Not Started
 ---
 
-## Enhancement Summary
+## **Project Title**
 
-Awaiting approval from instructors to begin project overhaul...
+### **Revising CS260 Course Sorting Application**
+
+---
+
+## **Project Overview**
+This capstone project demonstrates my evolution of foundational C++ programming skills. The artifact was originally developed in CS260: Data Structures and Algorithms into a modular, scalable system.
+
+The capstone enhancement process showcases professional-level competencies in topics such as:
+- **Software Design and Engineering** Refactoring procedural code into object-oriented architecture using a modular approach.
+ 
+- **Algorithms and Data Structures** — Implementing and benchmarking multiple sorting algorithms (Bubble, Merge, and Quick Sort, and potentially more, with runtime analysis and performance evaluation, including reports on the algorithms.
+
+- **Databases** — Integrating a SQLite relational database to replace the static CSV storage to provide persistent data management and secure CRUD operations.
+
+Combined, these enhancements illustrate my growth in the core domains of computer science while emphasizing structured thinking, algorithmic problem-solving, and practical database integration.  
+
+---
+
+## **Project Deliverables**
+
+The project is divided into three objectives:
+
+- **Software Design and Engineering**
+	- Create classes to uphold object-oriented principles and modularize the application.
+		- Add course class
+		- Add CourseManager class.
+	- Implement a menu or controller to dictate the program’s core flow.
+	- Improve the code’s readability and maintainability
+	- Use consistent naming conventions
+	- Divide implementation logic into header and source files
+	- Uphold secure coding practices:
+		- Integrate error handling to catch malformed CSVs or input validation.
+		- Integrate Input sanitization
+	- System Improvement
+		- Architecture will be split into multiple files
+		- Sorting class and validator to avoid malformed data.
+		- An error logging class that writes to a file.
+
+
+- **Algorithms and Data Structures**
+	- Implement multiple sorting algorithms
+		+ Merge Sort
+		+ Quick Sort
+		+ Bubble Sort (revise)
+		+ Insertion Sort (Optional)
+		+ Bucket Sort (Optional)
+		+ Radix Sort (Optional)
+	- Implement algorithmic benchmarking
+		+ Records execution time and compares them
+		+ Generates a formatted summary table with the number of elements, the algorithm chosen, and the total runtime in milliseconds.
+	- Move course data into a vector for dynamic resizing.
+	- (Optional) Markdown files with a report on each algorithm, including strengths, weaknesses, O-complexity best case and worst case, tangible examples, and best-practice use-cases
+
+
+- **Databases**
+	- Create a SQL table with courseID as the primary key.
+		+ unique courseIds
+		+ Parameterize all queries to mitigate injections
+		+ log all user actions in a separate log
+	- Implement basic CRUD operations
+		+ addCourse
+		+ removeCourse
+		+ updateCourse
+		+ fetchAllCourses
+		+ searchCourseById
+		+ searchCourseByName
+	- Integrate the database layer into the CourseManager class
+	- Add user menu
+
+---
+
+### Status
+
+Awaiting Confirmation to begin project...
