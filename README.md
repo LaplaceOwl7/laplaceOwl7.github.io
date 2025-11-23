@@ -36,6 +36,10 @@ The capstone enhancement process showcases professional-level competencies in to
 Combined, these enhancements illustrate my growth in the core domains of computer science while emphasizing structured thinking, algorithmic problem-solving, and practical database integration.  
 
 ---
+## Code Review prior to enhancements
+
+[Code Review](https://www.youtube.com/watch?v=naC4lX37uyY)
+---
 
 ## **Project Deliverables**
 
