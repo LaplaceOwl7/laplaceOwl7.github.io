@@ -102,7 +102,7 @@ The project is divided into three objectives:
 
 | Promised Deliverable | Status | Rationale |
 |------|--------|-----------|
-| Create a `Course` class for course objects | Fulfilled | Course.cpp and Course.hpp now exist |
+| Create a `Course` class for course objects | Fulfilled | Course.cpp and Course.hpp now exists |
 | Create a `CourseManager` class to handle CSV/database operations | Fulfilled | CourseManager.cpp and CourseManager.hpp exist; Validator.cpp handles CSV |
 | Add a main controller or menu system to manage program flow | Fulfilled | main.cpp manages program flow |
 | Separate UI/menu logic from data and backend logic | Waived | UI design in C++ is not trivial like in Java|
@@ -114,7 +114,7 @@ The project is divided into three objectives:
 | Modularize project into logical components | Fulfilled | Project2.cpp was split into 7+ cpp files with individual headers; Each completes 1-3 tasks.|
 | Implement encapsulation and abstraction (hide internal data, expose clear interfaces) | Fulfilled | HPPs abstract internal data|
 | Use design patterns where appropriate (factory, strategy, etc.) | Waived | Not often implemented correctly; Singleton not needed for project; avoid unnecessary complexity |
-| Add UML diagrams for design validation and communication | Fulfilled | Diagrams, class information, and flow created via Doxygen; See `/html/index/html` 
+| Add UML diagrams for design validation and communication | Fulfilled | Diagrams, class information, and flow created via Doxygen; See `/html/index/html.` 
 
 ##### Security & Stability
 
@@ -141,67 +141,89 @@ The project is divided into three objectives:
 | Adopt a unified coding standard| Partially Fulfilled | CPP Best practices adopted; mostly complete adoption. |
 | Ensure maintainability and scalability are demonstrated | Fulfilled | Demonstrated within code|
 
-#### Category Two: Data Structures & Algorithms:
+#### Category Two: Data Structures & Algorithms
 
 ##### Algorithm Implementation
-- [ ] Implement multiple sorting algorithms:
-  - [ ] Bubble Sort (refactored)
-  - [ ] Merge Sort
-  - [ ] Quick Sort
-  - [ ] Insertion Sort *(optional)*
-  - [ ] Bucket Sort *(optional)*
-  - [ ] Radix Sort *(optional)*
-- [ ] Add abstraction layer: base `Sorter` class with polymorphism  
+
+| Promised Deliverable | Status | Rationale |
+|------|--------|-----------|
+| Implement Bubble Sort (refactored) | Fulfilled | Implemented in `BubbleSort.cpp` |
+| Implement Merge Sort | Fulfilled |  Implemented in `MergeSort.cpp`
+| Implement Quick Sort | Fulfilled | Implemented in `QuickSort.cpp` |
+| Add abstraction layer with base `Sorter` class and polymorphic derived sorters | Waived |  |
 
 ##### Performance & Benchmarking
-- [ ] Add benchmarking module:
-  - [ ] Record execution time in milliseconds  
-  - [ ] Compare runtime across algorithms  
-  - [ ] Generate formatted summary report  
-- [ ] Analyze time and space complexity for each algorithm  
-- [ ] Document O-complexity (best, average, worst case)  
+
+| Promised Deliverable | Status | Rationale |
+|------|--------|-----------|
+| Add benchmarking module to record execution time in milliseconds | Fulfilled | Implemented in `Benchmarker.cpp` |
+| Compare runtime across all implemented sorting algorithms | Fulfilled | Algorithmic Documentation provided|
+| Generate a formatted summary performance report | Fulfilled | Markdown Report found in `AlgorithmicAnalysis.md` |
+| Analyze time and space complexity for each algorithm | Fulfilled | Found in `AlgorithmicAnalysis.md` |
+| Document Big-O complexity (best, average, worst case) for each algorithm | Pending | Found in `AlgorithmicAnalysis.md`  |
 
 ##### Data Management
-- [ ] Move all course data into a vector for dynamic resizing  
-- [ ] Maintain consistent data handling between algorithms  
+
+| Promised Deliverable | Status | Rationale |
+|------|--------|-----------|
+| Move all course data into a `std::vector` for dynamic resizing | Fulfilled | Implemented in `allCourses` |
+| Maintain consistent data handling between all algorithms | Fulfilled | Act upon vectors full of Course objects |
 
 ##### Documentation
-- [ ] Include Markdown reports on algorithm performance and use cases  
-- [ ] Clearly explain algorithm choice and trade-offs 
+
+| Promised Deliverable | Status | Rationale |
+|------|--------|-----------|
+| Write Markdown reports on algorithm performance and use cases | Fulfilled | Generated in `AlgorithmicAnalysis.md` |
+| Explain algorithm choices and trade-offs clearly | Fulfilled | Synopsis found in `AlgorithmicAnalysis.md` |
+
+---
 
 #### Category Three: Databases
+
 ##### Transition to Database
-- [ ] Replace CSV with a SQLite relational database  
-- [ ] Define relational schema with constraints:
-  - [ ] `courseID` as `PRIMARY KEY`
-  - [ ] `courseName` as `NOT NULL`
-- [ ] Parameterize all SQL queries (prevent injection attacks)  
+
+| Promised Deliverable | Status | Rationale |
+|------|--------|-----------|
+| Replace CSV storage with a SQLite relational database | Fulfilled | SQLite implemented |
+| Define relational schema with `courseID` as `PRIMARY KEY` | Fulfilled | Fulfilled in `generateSchema ()` |
+| Define relational schema with `courseName` as `NOT NULL` | Fulfilled | Upheld in `generateSchema ()`  |
+| Parameterize all SQL queries to prevent injection attacks | Fulfilled | SQL library is used before statements are executed |
 
 ##### CRUD Implementation
-- [ ] Implement full CRUD operations:
-  - [ ] `addCourse()`
-  - [ ] `removeCourse()`
-  - [ ] `updateCourse()`
-  - [ ] `fetchAllCourses()`
-  - [ ] `searchCourseById()`
-  - [ ] `searchCourseByName()`
-- [ ] Integrate CRUD into the `CourseManager` class  
+
+| Promised Deliverable | Status | Rationale |
+|------|--------|-----------|
+| Implement `addCourse()` | Fulfilled | CRUD method implemented in CourseManager class |
+| Implement `removeCourse()` | Fulfilled | CRUD method implemented in CourseManager class  |
+| Implement `updateCourse()` | Fulfilled | CRUD method implemented in CourseManager class  |
+| Implement `fetchAllCourses()` | Fulfilled | Implemented in CourseManager |
+| Implement `searchCourseById()` | Fulfilled | CRUD method implemented in CourseManager class  |
+| Implement `searchCourseByName()` | Fulfilled | CRUD method implemented in CourseManager class |
+| Integrate all CRUD operations into the `CourseManager` class | Fulfilled | Create, Read, Update, and Delete are integrated into CourseManager class via wrapper function; DataManager has its own functions. |
 
 ##### Database Management
-- [ ] Add database connection and disconnection handling  
-- [ ] Log all user actions into separate log files  
-- [ ] Include schema creation on first connection  
+
+| Promised Deliverable | Status | Rationale |
+|------|--------|-----------|
+| Add database connection handling (open/close) | Fulfilled | Constructor and Deconstructor Handled |
+| Log all user actions into separate log files | Fulfilled | `Recorder.cpp` performs this action |
+| Include schema creation on first database connection | Fulfilled | `generateSchema()` satisfies this request |
 
 ##### User Interface / Interaction
-- [ ] Add user menu options:
-  - [ ] “Load Courses”
-  - [ ] “Add Course”
-  - [ ] “Delete Course”
-  - [ ] “Display Course”
-  - [ ] “Export Sorted Courses”  
+
+| Promised Deliverable | Status | Rationale |
+|------|--------|-----------|
+| Add user menu option: “Load Courses” | Fulfilled | Handled by `takeCRUDOperation()` |
+| Add user menu option: “Add Course” | Fulfilled | Handled by `takeCRUDOperation()` |
+| Add user menu option: “Delete Course” | Fulfilled | Handled by `takeCRUDOperation()` |
+| Add user menu option: “Display Course” | Fulfilled | Handled by `takeCRUDOperation()` |
 
 ##### Security & Design
-- [ ] Enforce unique course IDs  
-- [ ] Use parameterized queries for injection prevention  
-- [ ] Separate SQL logic from main application logic (data access layer abstraction)  
+
+| Promised Deliverable | Status | Rationale |
+|------|--------|-----------|
+| Enforce unique course IDs at the database level | Fulfilled | Fulfilled in `genereateSchema()`  |
+| Use parameterized SQL queries for injection prevention | Fulfilled |Upheld by using the C++ SQLite library  |
+| Separate SQL logic from main application logic via a data access layer | Fulfilled | SQL logic contained in `DataManager.cpp` Course concerns handled in `CourseManager.cpp` |
+
 
