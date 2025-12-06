@@ -1,229 +1,187 @@
-# CS499 Computer Science Capstone Project
-### Enhancing and Integrating Software Systems Through Design, Algorithms, and Databases
+# CS499: Capstone
+
+<!-- This markdown code was AI-Assisted  -->
+
+## Link to GitHub Repository:
+
+[Source Code](https://github.com/LaplaceOwl7/CS499-CapStone-AlgorithmicAnswers)
+
+## 0. Introduction
+
+
+To be added
+
+
+## 1. Introduction & Purpose of Enhancements
+
+
+### Overview
+
+The original design of this project was a class taken at Southern New Hampshire University's Computer Science program. The class was CS300: Data Structures and Algorithms. The final project was designed to evaluate the student's knowledge on algorithms, C++ coding skills, and knowledge in file management within C++. The original file was a single CPP file that replicated a software to store course objects that represented actual courses found at a university. The single CPP file was complete with a function to extract information from a CSV file, create a vector with all course objects, and alphabetically sort the vector by CourseIDs.
+
+### Motivation for enhancing the artifact
+
+Southern New Hampshire University students take capstone courses, where all the skills and knowledge learned from the program are tested. The goal was to revise the code base to demonstrate the knowledge and skills learned in the program.
+
+The project had three enhancement categories planned:
+  - Software Engineering & Design
+  - Algorithms & Data Structures
+  - Database / Data Management
 
 ---
 
-## Developer Information
-**Name:** Chad Salaets 
+### Category 1: Software Engineering & Design Enhancements
 
-**Program:** Bachelor of Science in Computer Science
+#### Object-Oriented Refactoring
 
-**Concentration:** Software Engineering  
+##### Classes
 
-**Institution:** Southern New Hampshire University (SNHU)  
+Classes like `Course`, `CourseManager`, `Validator`, `DataManager`, `Benchmarker`, `Err`, and Recorder` were created in this enhancement.
 
-**Course:** CS-499: Computer Science Capstone  
+#### Architecture & Maintainability Improvements
+
+- The project is modularized into multiple `.cpp` and `.hpp` files. The compartmentalization enhances readability and manages complexity as the code base evolves.
+- Waiving UI separation was a conscious design choice: since UI layering in C++ (console-based) wasn’t critical to the core functionality, avoiding over-engineering keeps development focused and maintainable without unnecessary abstraction overhead.
+- With code organized logically and documented, future developers (or me in several months) can understand the structure, dependencies, and responsibilities, significantly simplifying the debugging, extension, and refactoring.
+- Adopting consistent naming conventions and C++ code organization makes code predictable and uniform.
+
+#### Security & Stability Enhancements
+
+- Validating CSV input and handling malformed or invalid data reduces the risk of unexpected crashes or corrupted data, and is are critically important defensive programming practice.
+- Error logging via `Err.cpp` and user action logging via `Recorder.cpp` provide traceability and diagnosis of runtime issues, user mistakes, or invalid operations without crashing the system.
+- Defensive programming (validations, careful input checking, error handling) reduces attack surface or unexpected behavior if unexpected input/data arises. Even in small projects, these practices increase stability under edge cases.
+
+#### Professional Engineering Practices
+
+- Use of documentation tools like Doxygen, build-system tools like CMake, and Markdown reports reflects real-world software engineering workflows, promoting readability and collaboration.
+- The code structure, modular design, and defensive practices support maintainability and scalability, preparing the project for extension or reuse.
+- Aligns with standard software engineering outcomes: clear separation of concerns, robust error handling, data integrity, modular architecture, all of which matter in professional-quality software systems.
 
 
 ---
 
-## **Project Title**
+## Category 2: Algorithms & Data Structures Enhancements
 
-### **Revising CS260 Course Sorting Application**
+Category two was concerned with the algorithms and data structures of the code. The most important work was to implement MergeSort, QuickSort, and StandardSort, in addition to making all functions reachable from `Sorter.cpp`.
 
----
+### Implemented Sorting Algorithms
 
-## **Project Overview**
-This capstone project demonstrates my evolution of foundational C++ programming skills. The artifact was originally developed in CS260: Data Structures and Algorithms into a modular, scalable system.
+- Bubble Sort
+- Merge Sort
+- Quick Sort
+- Standard Library Sort (`std::sort`)
 
-The capstone enhancement process showcases professional-level competencies in topics such as:
-- **Software Design and Engineering** Refactoring procedural code into object-oriented architecture using a modular approach.
- 
-- **Algorithms and Data Structures** — Implementing and benchmarking multiple sorting algorithms (Bubble, Merge, and Quick Sort, and potentially more, with runtime analysis and performance evaluation, including reports on the algorithms.
+- Source file locations:
+  - `BubbleSort.cpp.cpp`, simple, educational, baseline sorting implementation
+  - `MergeSort.cpp`  divide-and-conquer stable sort, good for large or unpredictable data
+  - `QuickSort.cpp`, in-place, average-efficient sort, good for general-purpose use
+  - `std::sort` (standard library), production-quality, optimized sort used as a baseline for performance comparison
 
-- **Databases** — Integrating a SQLite relational database to replace the static CSV storage to provide persistent data management and secure CRUD operations.
+### Theoretical Algorithm Analysis
 
-Combined, these enhancements illustrate my growth in the core domains of computer science while emphasizing structured thinking, algorithmic problem-solving, and practical database integration.  
+For each sorting algorithm:
 
----
-## Code Review prior to enhancements
+- **Time Complexity (Big-O)**
+  - Bubble Sort: average/worst **O(n²)**; best case (nearly sorted) **O(n)**
+  - Merge Sort: always **O(n log n)**
+  - Quick Sort: average **O(n log n)**; worst **O(n²)** 
+  - `std::sort`: treated as a well-optimized baseline (often using introspective sort or similar; complexity effectively behaves as **O(n log n)** in most realistic cases)
 
-[Code Review](https://www.youtube.com/watch?v=naC4lX37uyY)
----
+- **Space Complexity**
+  - Bubble Sort: in-place, **O(1)** auxiliary memory
+  - Merge Sort: **O(n)** extra memory for merging (unless optimized in-place variant used)
+  - Quick Sort: **O(log n)** stack space (recursive calls) or more, depending on implementation/partitioning.
 
-## **Project Deliverables**
+- **Strengths / Weaknesses & Use Cases**
+  - Bubble Sort: very simple and stable; good for small or nearly-sorted datasets or educational demonstration. But inefficient for large or random data.
+  - Merge Sort: reliable performance (n log n) regardless of input order, stable; good for large datasets or when stability matters; but uses additional memory.
+  - Quick Sort: Very efficient on average with low overhead; good general-purpose sort. But worst-case performance if pivot selection is poor; instability may be an issue in contexts needing a stable sort.
+  - `std::sort`: optimized, likely includes hybrid strategies; good for production use where performance and robustness are priorities.
 
-The project is divided into three objectives:
+### Benchmarking Methodology
 
-- **Software Design and Engineering**
-	- Create classes to uphold object-oriented principles and modularize the application.
-		- Add course class
-		- Add CourseManager class.
-	- Implement a menu or controller to dictate the program’s core flow.
-	- Improve the code’s readability and maintainability
-	- Use consistent naming conventions
-	- Divide implementation logic into header and source files
-	- Uphold secure coding practices:
-		- Integrate error handling to catch malformed CSVs or input validation.
-		- Integrate Input sanitization
-	- System Improvement
-		- Architecture will be split into multiple files
-		- Sorting class and validator to avoid malformed data.
-		- An error logging class that writes to a file.
+- Used input dataset `seedInput.csv` for consistent baseline data.
+- Conducted 100 runs per sorting algorithm to average out variance and obtain stable measurement results.
+- Measured **execution time in milliseconds as a performance metric.
+- Ensured environment consistency across runs (same hardware, input dataset, no extraneous load) to make comparisons reliable.
+- Compared implemented sorts against `std::sort` to provide a baseline and highlight practical performance differences.
 
+### Benchmarking Results & Interpretation
 
-- **Algorithms and Data Structures**
-	- Implement multiple sorting algorithms
-		+ Merge Sort
-		+ Quick Sort
-		+ Bubble Sort (revise)
-		+ Insertion Sort (Optional)
-		+ Bucket Sort (Optional)
-		+ Radix Sort (Optional)
-	- Implement algorithmic benchmarking
-		+ Records execution time and compares them
-		+ Generates a formatted summary table with the number of elements, the algorithm chosen, and the total runtime in milliseconds.
-	- Move course data into a vector for dynamic resizing.
-	- (Optional) Markdown files with a report on each algorithm, including strengths, weaknesses, O-complexity best case and worst case, tangible examples, and best-practice use-cases
+- Results (in a tabular format) show how algorithms scale with increasing data size, allowing direct comparison between theoretical expectations and empirical performance.
+- Observations:
+  - For small datasets, simpler algorithms (Bubble Sort) may perform competitively due to low overhead despite poor asymptotic behavior.
+  - As dataset size grows, algorithms with O(n log n) complexity (Merge Sort, Quick Sort, `std::sort`) outperform quadratic sorts significantly.
+  - `std::sort` generally performs best due to optimized implementation and lower constant factors.
+  - Performance differences align with Big-O theory: algorithms with better complexity scale more gracefully as `n` increases.
 
+### Algorithmic Trade-Off Discussion
 
-- **Databases**
-	- Create a SQL table with courseID as the primary key.
-		+ unique courseIds
-		+ Parameterize all queries to mitigate injections
-		+ log all user actions in a separate log
-	- Implement basic CRUD operations
-		+ addCourse
-		+ removeCourse
-		+ updateCourse
-		+ fetchAllCourses
-		+ searchCourseById
-		+ searchCourseByName
-	- Integrate the database layer into the CourseManager class
-	- Add user menu
+- **Stability vs. Performance**: Merge Sort offers stability and consistent performance; Quick Sort offers speed but is unstable and can degrade in the worst case; Bubble Sort is stable but inefficient except for very small or nearly-sorted data.
+- **Predictability vs. Overhead**: Merge Sort’s extra memory overhead may be costly for memory-constrained environments; Quick Sort and in-place sorts avoid that at the expense of worst-case risk.
+- **Practical Use in Production**: `std::sort` remains industry-preferred because it balances speed, reliability, and implementation robustness. For real-world applications, using a well-tested standard library sort often outweighs custom implementations.
+- **When to Use What**:
+  - For small or nearly sorted data, simple sorts may suffice.
+  - For large data sets with unknown properties, prefer Merge or Quick Sort (or `std::sort`) for performance.
+  - If element stability matters, choose Merge Sort (or stable sort variant).
+  - For production code aiming at maintainability and performance, rely on standard library sorts unless custom behavior is needed.
 
 ---
 
-### Status
+## Database Enhancements & Data Management
 
-### Category One: Software Engineering & Design
+Category 3 focused on database management, including CRUD methods for database modifications.
 
-##### Object-Oriented Refactoring
+### Motivation for Migrating from CSV to SQLite
 
-| Promised Deliverable | Status | Rationale |
-|------|--------|-----------|
-| Create a `Course` class for course objects | Fulfilled | Course.cpp and Course.hpp now exists |
-| Create a `CourseManager` class to handle CSV/database operations | Fulfilled | CourseManager.cpp and CourseManager.hpp exist; Validator.cpp handles CSV |
-| Add a main controller or menu system to manage program flow | Fulfilled | main.cpp manages program flow |
-| Separate UI/menu logic from data and backend logic | Waived | UI design in C++ is not trivial like in Java|
+- CSV is simple and is  human-readable, but is limited when data integrity, constraints, or complex queries are needmanagement, relational database like SQLite supports constraints, schema enforcement, and efficient querying, avoiding custom parsing and query-code maintenance required for CSV-based querying.
+- SQLite is serverless and embedded: no extra database server required, making it lightweight while providing “database-level” guarantees (integrity, transactions, indexing) that CSV lacks.
 
-##### Architecture & Maintainability
+### Database Schema Design
 
-| Promised Deliverable  | Status | Rationale |
-|------|--------|-----------|
-| Modularize project into logical components | Fulfilled | Project2.cpp was split into 7+ cpp files with individual headers; Each completes 1-3 tasks.|
-| Implement encapsulation and abstraction (hide internal data, expose clear interfaces) | Fulfilled | HPPs abstract internal data|
-| Use design patterns where appropriate (factory, strategy, etc.) | Waived | Not often implemented correctly; Singleton not needed for project; avoid unnecessary complexity |
-| Add UML diagrams for design validation and communication | Fulfilled | Diagrams, class information, and flow created via Doxygen; See `/html/index/html.` 
+- Defined schema includes `courseID` as `PRIMARY KEY` and `courseName` as `NOT NULL`, enforcing uniqueness and preventing null names.
+- Prerequisites or other relational data have been handled appropriately to preserve relational integrity and avoid duplication of inconsistent data.
+- These constraints ensure data consistency, avoid duplicate or malformed records, and maintain referential/data integrity over time, which CSV-based storage cannot guarantee robustly.
 
-##### Security & Stability
+### CRUD Functionality Implementation
 
-| Promised Deliverable  | Status | Rationale |
-|------|--------|-----------|
-| Add input sanitization for course input data | Fulfilled  | Basic CSV validation found in Validator.cpp |
-| Catch malformed CSV input and handle gracefully | Fulfilled |Basic CSV validation found in Validator.cpp |
-| Implement file validation and format checking | Fulfilled | Basic CSV validation found in Validator.cpp |
-| Add error logging class to write to file | Fulfilled | Err.cpp generates logs that are stored in /log/details.log |
+- Provided functions: `addCourse`, `removeCourse`, `updateCourse`, `fetchAllCourses`, `searchCourseById`, `searchCourseByName`.
+- Each operation uses parameterized SQL queries, which prevents injection vulnerabilities and ensures safe handling of user input before interacting with the database.
+- Error handling is in place: database connection open/close, invalid inputs, and failed queries are managed gracefully (not left to undefined behavior).
+- This provides a full data-access API, replacing brittle CSV parsing and risky file operations with robust, testable, and maintainable database interactions.
 
-##### Professional Practices
+### Data Access Layer Architecture
 
-| Promised Deliverable  | Status | Rationale |
-|------|--------|-----------|
-| Document design rationale and class responsibilities | Pending | |
-| Justify architectural trade-offs and pattern choices | Pending | |
-| Ensure maintainability and scalability are demonstrated | Fulfilled | Demonstrated within code|
+- Separation of concerns: `DataManager` encapsulates all direct SQL/DB operations; `CourseManager` implements business logic and higher-level course management.
+- This decoupling improves maintainability (you can change DB backend or schema without affecting business logic), testability (unit test business logic independently of database), and security (all SQL confined to one layer).
+- It aligns with design-pattern best practices: data-access layer abstraction improves modularity and future extensibility.
 
-##### Extra (Not Promised)
+### User Action Logging
 
-| Extended Deliverable  | Status | Rationale |
-|------|--------|-----------|
-|Used common professional tools  | Fulfilled | Doxygen; CMake; and MDs used |
-| Adopt a unified coding standard| Partially Fulfilled | CPP Best practices adopted; mostly complete adoption. |
-| Ensure maintainability and scalability are demonstrated | Fulfilled | Demonstrated within code|
-
-#### Category Two: Data Structures & Algorithms
-
-##### Algorithm Implementation
-
-| Promised Deliverable | Status | Rationale |
-|------|--------|-----------|
-| Implement Bubble Sort (refactored) | Fulfilled | Implemented in `BubbleSort.cpp` |
-| Implement Merge Sort | Fulfilled |  Implemented in `MergeSort.cpp`
-| Implement Quick Sort | Fulfilled | Implemented in `QuickSort.cpp` |
-| Add abstraction layer with base `Sorter` class and polymorphic derived sorters | Waived |  |
-
-##### Performance & Benchmarking
-
-| Promised Deliverable | Status | Rationale |
-|------|--------|-----------|
-| Add benchmarking module to record execution time in milliseconds | Fulfilled | Implemented in `Benchmarker.cpp` |
-| Compare runtime across all implemented sorting algorithms | Fulfilled | Algorithmic Documentation provided|
-| Generate a formatted summary performance report | Fulfilled | Markdown Report found in `AlgorithmicAnalysis.md` |
-| Analyze time and space complexity for each algorithm | Fulfilled | Found in `AlgorithmicAnalysis.md` |
-| Document Big-O complexity (best, average, worst case) for each algorithm | Pending | Found in `AlgorithmicAnalysis.md`  |
-
-##### Data Management
-
-| Promised Deliverable | Status | Rationale |
-|------|--------|-----------|
-| Move all course data into a `std::vector` for dynamic resizing | Fulfilled | Implemented in `allCourses` |
-| Maintain consistent data handling between all algorithms | Fulfilled | Act upon vectors full of Course objects |
-
-##### Documentation
-
-| Promised Deliverable | Status | Rationale |
-|------|--------|-----------|
-| Write Markdown reports on algorithm performance and use cases | Fulfilled | Generated in `AlgorithmicAnalysis.md` |
-| Explain algorithm choices and trade-offs clearly | Fulfilled | Synopsis found in `AlgorithmicAnalysis.md` |
+- The file `Recorder.cpp` logs all user actions, providing an audit trail of operations performed.
+- This supports accountability, debugging, and understanding historical data modifications, important for reliability, traceability, and potential rollback or audits.
+- In professional systems, action logging is critical for diagnosing issues, reproducing bugs, and maintaining data provenance. Even for small projects, it is a sign of mature engineering practice.
 
 ---
 
-#### Category Three: Databases
+## Validation, Error Handling, and Logging
 
-##### Transition to Database
+### Input Validation Strategy
 
-| Promised Deliverable | Status | Rationale |
-|------|--------|-----------|
-| Replace CSV storage with a SQLite relational database | Fulfilled | SQLite implemented |
-| Define relational schema with `courseID` as `PRIMARY KEY` | Fulfilled | Fulfilled in `generateSchema ()` |
-| Define relational schema with `courseName` as `NOT NULL` | Fulfilled | Upheld in `generateSchema ()`  |
-| Parameterize all SQL queries to prevent injection attacks | Fulfilled | SQL library is used before statements are executed |
+- All input data , whether from CSV import or user prompts , is validated before processing: format checks, field presence, sanity checks.
+- Edge-cases are handled: malformed CSV rows, missing fields, invalid types, duplicate IDs, or invalid user input are detected early and handled gracefully rather than causing undefined behavior.
+- Sanitization and validation act as a defensive layer to protect internal data structures and database integrity, reducing risks of corruption or unexpected failure.
 
-##### CRUD Implementation
+### Error Logging Mechanism
 
-| Promised Deliverable | Status | Rationale |
-|------|--------|-----------|
-| Implement `addCourse()` | Fulfilled | CRUD method implemented in CourseManager class |
-| Implement `removeCourse()` | Fulfilled | CRUD method implemented in CourseManager class  |
-| Implement `updateCourse()` | Fulfilled | CRUD method implemented in CourseManager class  |
-| Implement `fetchAllCourses()` | Fulfilled | Implemented in CourseManager |
-| Implement `searchCourseById()` | Fulfilled | CRUD method implemented in CourseManager class  |
-| Implement `searchCourseByName()` | Fulfilled | CRUD method implemented in CourseManager class |
-| Integrate all CRUD operations into the `CourseManager` class | Fulfilled | Create, Read, Update, and Delete are integrated into CourseManager class via wrapper function; DataManager has its own functions. |
+- The file `Err.cpp` implements error logging: whenever an exception, invalid input, or database error occurs, relevant details are written to a log.
+- Logged data includes context (what operation failed, what data was involved), so future debugging or forensic analysis can trace root causes.
+- Proper error logging helps identify recurring issues, unexpected input patterns, and supports maintainability over time , rather than silent failures or crashes that are harder to reproduce.
 
-##### Database Management
+### Separation of Error Logs vs. User Action Logs
 
-| Promised Deliverable | Status | Rationale |
-|------|--------|-----------|
-| Add database connection handling (open/close) | Fulfilled | Constructor and Deconstructor Handled |
-| Log all user actions into separate log files | Fulfilled | `Recorder.cpp` performs this action |
-| Include schema creation on first database connection | Fulfilled | `generateSchema()` satisfies this request |
+- Error logs (from `Err.cpp`) are separate from user-action logs (from `Recorder.cpp`): this separation enables clarity between normal operations and exceptional/error conditions.
+- Such distinction allows for easier monitoring, debugging, auditability, and analysis.
+- This approach aligns with logging best practices: structured, purpose-specific logs improve observability without overwhelming developers with mixed, noisy logs.
 
-##### User Interface / Interaction
-
-| Promised Deliverable | Status | Rationale |
-|------|--------|-----------|
-| Add user menu option: “Load Courses” | Fulfilled | Handled by `takeCRUDOperation()` |
-| Add user menu option: “Add Course” | Fulfilled | Handled by `takeCRUDOperation()` |
-| Add user menu option: “Delete Course” | Fulfilled | Handled by `takeCRUDOperation()` |
-| Add user menu option: “Display Course” | Fulfilled | Handled by `takeCRUDOperation()` |
-
-##### Security & Design
-
-| Promised Deliverable | Status | Rationale |
-|------|--------|-----------|
-| Enforce unique course IDs at the database level | Fulfilled | Fulfilled in `genereateSchema()`  |
-| Use parameterized SQL queries for injection prevention | Fulfilled |Upheld by using the C++ SQLite library  |
-| Separate SQL logic from main application logic via a data access layer | Fulfilled | SQL logic contained in `DataManager.cpp` Course concerns handled in `CourseManager.cpp` |
-
-
+---
