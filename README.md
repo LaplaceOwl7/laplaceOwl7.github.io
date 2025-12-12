@@ -1,23 +1,39 @@
 # CS499: Capstone
 
-<!-- This markdown code was AI-Assisted  -->
+<!-- This markdown code was AI-Assisted for formatting and flow  -->
+
+## Professional Self-Assessment
+
+My name is Chad Salaets, a computer-science graduate from Southern New Hampshire University. The computer science program has been an incredible journey for me in my 2.5 years. As a traditional chemistry major, I've transitioned into the realm of computer science due to career goals that align more with computer science and mathematics instead of chemistry.
+
+My time here at SNHU has changed my mindset to be in line with a computer programmer. My identity as a software engineer taught me to think of architecture, trade-offs, and long-term maintainability instead of just code. All the coursework was instrumental in developing the skills required to be effective in designing software. The first steps in the coursework focused on correctness, while later coursework began to focus on design quality and scalability. The Capstone work required multiple perspectives in the discipline rather than just subject-based coursework. The capstone required secure coding, database management, systems architecture, and quality assurance. This portfolio demonstrates growth in refactoring, enhancement, and justification rather than starting from scratch.
+
+Communication among developers, stakeholders, and other departments is critical for any software developer. My past experience in chemistry demonstrated how to reduce complex and difficult topics into easy-to-understand language. Software development is very similar. Academics as a whole develop collaboration through feedback cycles with instructors through rubric-based revisions. The coursework required the student to interpret ambiguous requests, explain technical decisions during code review, develop extensive documentation to support future maintenance, and organize code for future developers to modify the project safely. Fast-handed communication through naming structures and comments explains the project in minimal ways. Adapting techincal depth for the audience was a common occurence in the courses, either focusing on peers, evaluators, or stakeholders. 
+
+The capstone was a practical chance to demonstrate algorithmic thinking to improve performance and scalablity by selecting data structures based on the patterns of access. The balance of theoretical complexity with real-world performance is a fine line to balance and requires thought and focus on the purpose of the system. Usage of benchmarking and analysis to justify decision choices is a clever way to base decisions on facts rather than opinions. 
+
+The software engineering portion required knowledge in the separation of concerns to isolate repsonbilities and design systems around interfaces as opposed to implementations. The process of code revision to improve maintainability is a strong skill to develop, as the code revision can be on a live system, where certain aspects can not be revised. Maintaining object-oriented principles intentionally demonstrates a deeper understanding and an intention to their benefits, not just to follow a guideline. 
+
+
+
 
 ## Link to GitHub Repository:
 
-[Source Code](https://github.com/LaplaceOwl7/CS499-CapStone-AlgorithmicAnswers)
+### Prior to Enhancements
 
-## 0. Introduction
+[CS300: Data Structures And Algorithms](https://github.com/LaplaceOwl7/Data-Structures-And-Algorithms)
+
+### After Enhancements
+
+[CS:499 Project](https://github.com/LaplaceOwl7/CS499-CapStone-AlgorithmicAnswers)
 
 
-To be added
-
-
-## 1. Introduction & Purpose of Enhancements
+## Introduction to Enhancements
 
 
 ### Overview
 
-The original design of this project was a class taken at Southern New Hampshire University's Computer Science program. The class was CS300: Data Structures and Algorithms. The final project was designed to evaluate the student's knowledge on algorithms, C++ coding skills, and knowledge in file management within C++. The original file was a single CPP file that replicated a software to store course objects that represented actual courses found at a university. The single CPP file was complete with a function to extract information from a CSV file, create a vector with all course objects, and alphabetically sort the vector by CourseIDs.
+The original design of this project was a class taken at Southern New Hampshire University's Computer Science program. The class was CS300: Data Structures and Algorithms. The final project was designed to evaluate the students' knowledge of algorithms, C++ coding skills, and knowledge of file management within C++. The original file was a single CPP file that replicated a software to store course objects that represented actual courses found at a university. The single CPP file was complete with a function to extract information from a CSV file, create a vector with all course objects, and alphabetically sort the vector by CourseIDs.
 
 ### Motivation for enhancing the artifact
 
@@ -27,12 +43,22 @@ The project had three enhancement categories planned:
   - Software Engineering & Design
   - Algorithms & Data Structures
   - Database / Data Management
+  
+#### Overview
+
+All 3 artifacts are from the same source. This artifact was from the CS300: Data Structures and Algorithms class. The purpose was to install a sorting algorithm so that a mock school's database would contain courses, each with a course title, course ID, and prerequisites. The project included a single C++ file equipped with a CSV file to pull the information from. The original code was my first introduction to C++, and did not follow best practice security guidelines.
+
+The inclusion of this artifact demonstrates my technical growth in the C++ language as a whole, and demonstrates my awareness of common C++ pitfalls like lack of input validation, safe file handling, etc. The industry-relevant skills here are the ability to stick to a coding guideline, use best practice tools like CMake, Doxygen, and SQLite. It aligns with my interest in software engineering programs close to the metal, like virtualization engines. 
+
+The original version was riddled with issues, like a lack of input sanitization from CIN and the CSVs. The architecture was poorly designed with a master vector holding all the courses, and the only way to modify any courses was via the CSV file. The technical debts here were incurred in favor of implementing an algorithm. The purpose of this class was to learn about data structures like binary search trees and heaps, and the algorithms commonly found, not full secure coding. 
 
 ---
 
 ### Category 1: Software Engineering & Design Enhancements
 
-#### Object-Oriented Refactoring
+#### Design Rationale
+
+##### Object-Oriented Refactoring
 
 ##### Classes
 
@@ -55,7 +81,7 @@ Classes like `Course`, `CourseManager`, `Validator`, `DataManager`, `Benchmarker
 
 - Use of documentation tools like Doxygen, build-system tools like CMake, and Markdown reports reflects real-world software engineering workflows, promoting readability and collaboration.
 - The code structure, modular design, and defensive practices support maintainability and scalability, preparing the project for extension or reuse.
-- Aligns with standard software engineering outcomes: clear separation of concerns, robust error handling, data integrity, modular architecture, all of which matter in professional-quality software systems.
+- Aligns with standard software engineering outcomes: clear separation of concerns, robust error handling, data integrity, and modular architecture, all of which matter in professional-quality software systems.
 
 
 ---
@@ -168,20 +194,84 @@ Category 3 focused on database management, including CRUD methods for database m
 
 ### Input Validation Strategy
 
-- All input data , whether from CSV import or user prompts , is validated before processing: format checks, field presence, sanity checks.
-- Edge-cases are handled: malformed CSV rows, missing fields, invalid types, duplicate IDs, or invalid user input are detected early and handled gracefully rather than causing undefined behavior.
+- All input data, whether from CSV import or user prompts, is validated before processing: format checks, field presence, sanity checks.
+- Edge cases are handled: malformed CSV rows, missing fields, invalid types, duplicate IDs, or invalid user input are detected early and handled gracefully rather than causing undefined behavior.
 - Sanitization and validation act as a defensive layer to protect internal data structures and database integrity, reducing risks of corruption or unexpected failure.
 
 ### Error Logging Mechanism
 
 - The file `Err.cpp` implements error logging: whenever an exception, invalid input, or database error occurs, relevant details are written to a log.
 - Logged data includes context (what operation failed, what data was involved), so future debugging or forensic analysis can trace root causes.
-- Proper error logging helps identify recurring issues, unexpected input patterns, and supports maintainability over time , rather than silent failures or crashes that are harder to reproduce.
+- Proper error logging helps identify recurring issues, unexpected input patterns, and supports maintainability over time, rather than silent failures or crashes that are harder to reproduce.
 
 ### Separation of Error Logs vs. User Action Logs
 
 - Error logs (from `Err.cpp`) are separate from user-action logs (from `Recorder.cpp`): this separation enables clarity between normal operations and exceptional/error conditions.
-- Such distinction allows for easier monitoring, debugging, auditability, and analysis.
+- Such a distinction allows for easier monitoring, debugging, auditability, and analysis.
 - This approach aligns with logging best practices: structured, purpose-specific logs improve observability without overwhelming developers with mixed, noisy logs.
+
+---
+
+## Reflection: What did I learn?
+
+Each category forced me to learn about C++ coding in "the wild." 
+
+### Category One: Software Engineering
+
+- Learned how to use best practice tools:
+    - CMake
+    - Doxygen
+    - Markdown
+- Learned how separation of concerns can improve system clarity by isolating concerns like data and presentation.
+- Gained an increased understanding of layered architecture and how tight coupling between modules quickly becomes overly complex.
+- Learned to decide the responsibilities of modules and assign them per class based on their purpose.
+- Designed clear interfaces using headers without exposing internal details.
+- Demonstrated the perks of object-oriented code in a system's complexity. 
+- Learned to apply encapsulation instead of treating all classes like data structures. 
+- Understood the constructor design. 
+- Learned separation in headers and source files. 
+- Gained experience in circular dependencies.
+- Learned to bias small classes with a focused purpose.
+- Recognized how monolithic designs can cripple testing and reuse.
+- Learned how to anticipate future requirements.
+- Learned to write self-documenting code. 
+- Learned that minimizing headers introduces Weaknesses.
+- Garnered more confidence in refactoring, knowing I won't break the code; and if I do, I'll fix it.
+
+### Category 2: Data Structures & Algorithms
+
+- Learned to properly decide an algorithm's choices driven by data size, input characteristics, and usage patterns instead of just optimized code.
+- Gained insights into simpler algorithms that can outperform complex ones thanks to constant factors.
+- Learned to evaluate trade-offs between time complexity, space complexity, and code maintainability.
+- Developed a strong rationale for determining the best, average, and worst-case behaviors.
+- Learned how algorithmic inefficiencies are only visible in larger datasets.
+- Learned the specific quirks in choosing containers like vector, map, and unordered_map, which affect the algorithm's performance.
+- Learned to design data structures with healthy access patterns, not for data representation (preReq vectors vs preReq objects).
+- Gained experience in developing polymorphic code using swap algorithms.
+- Learned that theoretical complexity must be proven with data-based evidence.
+- Learned to use performance data to justify design choices rather than comfort or theory. 
+- Learned to validate algorithms for empty inputs, malformed data, or single-element datasets.
+- Learned to build defensive checks in regards to performance.
+- Demonstrated how to communicate algorithmic decisions in non-technical terms.
+
+
+### Category 3: Database Management
+
+- Learned to translate real-world requirements into normalized schemas.
+- Gained experience in defining constraints to force correct data formats.
+- Learned how schema design has long-term implications for future revisions.
+- Learned how to use primary keys, uniqueness constraints, and Not Null enforcement. 
+- Demonstrated how databases can prevent bugs that are not caught in application checks.
+- Demonstrated why files are a poor choice in concurrency, scale, and complexity concerns. 
+- Learned to write parameterized queries to avoid injection vulnerabilities. 
+- Learned how to separate data access logic from business logic. 
+- Gained experience in designing layers to isolate the SQLite database from the application code. 
+- Learned how to use the SQLite library in C++.
+- Demonstrated how database connection failures and query errors are handled gracefully.
+- Demonstrated how to log database interactions for debugging, traceability, and security. 
+- Demonstrated how user authentication can be enforced.
+- Understood how database constraints can complement and enforce secure coding.
+- Learned how database systems can and should reflect the system's entire architecture.
+- Learned the process of reasoning how data will flow across the system's layers.
 
 ---
