@@ -4,18 +4,81 @@
 
 ## Professional Self-Assessment
 
-My name is Chad Salaets, a computer-science graduate from Southern New Hampshire University. The computer science program has been an incredible journey for me in my 2.5 years. As a traditional chemistry major, I've transitioned into the realm of computer science due to career goals that align more with computer science and mathematics instead of chemistry.
+My name is Chad Salaets, a computer science graduate from Southern New Hampshire University. The computer science program has been an important journey for me over the past 2.5 years. I originally began as a chemistry major, but transitioned into computer science as my career goals shifted toward areas more aligned with computer science and mathematics.
 
-My time here at SNHU has changed my mindset to be in line with a computer programmer. My identity as a software engineer taught me to think of architecture, trade-offs, and long-term maintainability instead of just code. All the coursework was instrumental in developing the skills required to be effective in designing software. The first steps in the coursework focused on correctness, while later coursework began to focus on design quality and scalability. The Capstone work required multiple perspectives in the discipline rather than just subject-based coursework. The capstone required secure coding, database management, systems architecture, and quality assurance. This portfolio demonstrates growth in refactoring, enhancement, and justification rather than starting from scratch.
+My time at SNHU changed how I think about software development. Instead of focusing only on writing code that works, I learned to think more like a software engineer, considering architecture, design trade-offs, and maintainability. Early coursework focused mainly on correctness, while later courses emphasized design quality, scalability, and structure. The capstone required pulling together multiple areas of the discipline rather than working within a single subject. It involved secure coding practices, database management, systems architecture, and quality assurance. This portfolio reflects growth through refactoring, enhancement, and justification of design decisions rather than creating new projects from scratch.
 
-Communication among developers, stakeholders, and other departments is critical for any software developer. My past experience in chemistry demonstrated how to reduce complex and difficult topics into easy-to-understand language. Software development is very similar. Academics as a whole develop collaboration through feedback cycles with instructors through rubric-based revisions. The coursework required the student to interpret ambiguous requests, explain technical decisions during code review, develop extensive documentation to support future maintenance, and organize code for future developers to modify the project safely. Fast-handed communication through naming structures and comments explains the project in minimal ways. Adapting techincal depth for the audience was a common occurence in the courses, either focusing on peers, evaluators, or stakeholders. 
+Communication between developers and stakeholders is critical in software development. My background in chemistry helped me learn how to explain complex topics in a clear and accessible way, which translated well into computer work. Throughout the program, collaboration was developed through feedback cycles with instructors in revisions. Coursework required interpreting unclear requirements, explaining technical decisions during code reviews, writing documentation for future maintenance, and organizing code so others could modify it safely. Clear naming conventions, comments, and structure helped communicate intent without excessive explanation. Adjusting technical depth depending on the audience was a common requirement. Documentation, logs, benchmarks, and schema descriptions were designed so future developers and stakeholders could understand the system and make informed decisions about performance, security, and design trade-offs.
 
-The capstone was a practical chance to demonstrate algorithmic thinking to improve performance and scalablity by selecting data structures based on the patterns of access. The balance of theoretical complexity with real-world performance is a fine line to balance and requires thought and focus on the purpose of the system. Usage of benchmarking and analysis to justify decision choices is a clever way to base decisions on facts rather than opinions. 
+The software engineering portion of the capstone focused heavily on the separation of concerns. Responsibilities were isolated, and systems were designed around interfaces instead of concrete implementations. Revising existing code to improve maintainability is an important skill, especially when working on systems where not everything can be rewritten. Applying object-oriented principles intentionally, rather than mechanically, showed their value in managing complexity and supporting long-term stability.
 
-The software engineering portion required knowledge in the separation of concerns to isolate repsonbilities and design systems around interfaces as opposed to implementations. The process of code revision to improve maintainability is a strong skill to develop, as the code revision can be on a live system, where certain aspects can not be revised. Maintaining object-oriented principles intentionally demonstrates a deeper understanding and an intention to their benefits, not just to follow a guideline. 
+The capstone also provided an opportunity to apply algorithmic thinking to improve performance and scalability. Data structures were selected based on access needed and system needs rather than theory alone. Balancing theoretical complexity with real-world performance required careful consideration of the system’s purpose. Benchmarking and analysis were used to justify decisions using measured results instead of assumptions. Performance tables and reports made it easier to compare algorithm behavior as data size increased.
+
+Security was treated as a design concern throughout the project. Input validation, parameterized queries, and defensive programming practices were applied consistently to handle malformed input, misuse, or unexpected behavior. These decisions helped reduce risk at system boundaries and reinforced data integrity rather than relying on the user to provide the correct data.
+
+Overall, the software design, algorithmic work, and database integration function together as a single system. Modular architecture supports interchangeable algorithms, algorithms operate on persistent relational data, and database constraints help enforce correctness and security. This portfolio demonstrates readiness for entry-level software engineering or backend development roles by showing the ability to work with existing codebases, improve structure and security, and reason about performance, data, and system design in a practical setting.
+
+## Reflection: Skills Developed
+
+Each category forced me to learn about computer science as a whole. Each category was a opportunity to develop a strong basis of skills.
+
+### Category One: Software Engineering
+
+- Learned how to use best practice tools:
+    - CMake
+    - Doxygen
+    - Markdown
+- Learned how separation of concerns can improve system clarity by isolating concerns like data and presentation.
+- Gained an increased understanding of layered architecture and how tight coupling between modules quickly becomes overly complex.
+- Learned to decide the responsibilities of modules and assign them per class based on their purpose.
+- Designed clear interfaces using headers without exposing internal details.
+- Demonstrated the perks of object-oriented code in a system's complexity. 
+- Learned to apply encapsulation instead of treating all classes like data structures. 
+- Understood the constructor design. 
+- Learned separation in headers and source files. 
+- Gained experience in circular dependencies.
+- Learned to bias small classes with a focused purpose.
+- Recognized how monolithic designs can cripple testing and reuse.
+- Learned how to anticipate future requirements.
+- Learned to write self-documenting code. 
+- Learned that minimizing headers introduces Weaknesses.
+- Garnered more confidence in refactoring, knowing I won't break the code; and if I do, I'll fix it.
+
+### Category 2: Data Structures & Algorithms
+
+- Learned to properly decide an algorithm's choices driven by data size, input characteristics, and usage patterns instead of just optimized code.
+- Gained insights into simpler algorithms that can outperform complex ones thanks to constant factors.
+- Learned to evaluate trade-offs between time complexity, space complexity, and code maintainability.
+- Developed a strong rationale for determining the best, average, and worst-case behaviors.
+- Learned how algorithmic inefficiencies are only visible in larger datasets.
+- Learned the specific quirks in choosing containers like vector, map, and unordered_map, which affect the algorithm's performance.
+- Learned to design data structures with healthy access patterns, not for data representation (preReq vectors vs preReq objects).
+- Gained experience in developing polymorphic code using swap algorithms.
+- Learned that theoretical complexity must be proven with data-based evidence.
+- Learned to use performance data to justify design choices rather than comfort or theory. 
+- Learned to validate algorithms for empty inputs, malformed data, or single-element datasets.
+- Learned to build defensive checks in regards to performance.
+- Demonstrated how to communicate algorithmic decisions in non-technical terms.
 
 
+### Category 3: Database Management
 
+- Learned to translate real-world requirements into normalized schemas.
+- Gained experience in defining constraints to force correct data formats.
+- Learned how schema design has long-term implications for future revisions.
+- Learned how to use primary keys, uniqueness constraints, and Not Null enforcement. 
+- Demonstrated how databases can prevent bugs that are not caught in application checks.
+- Demonstrated why files are a poor choice in concurrency, scale, and complexity concerns. 
+- Learned to write parameterized queries to avoid injection vulnerabilities. 
+- Learned how to separate data access logic from business logic. 
+- Gained experience in designing layers to isolate the SQLite database from the application code. 
+- Learned how to use the SQLite library in C++.
+- Demonstrated how database connection failures and query errors are handled gracefully.
+- Demonstrated how to log database interactions for debugging, traceability, and security. 
+- Demonstrated how user authentication can be enforced.
+- Understood how database constraints can complement and enforce secure coding.
+- Learned how database systems can and should reflect the system's entire architecture.
+- Learned the process of reasoning how data will flow across the system's layers.
 
 ## Link to GitHub Repository:
 
@@ -212,66 +275,4 @@ Category 3 focused on database management, including CRUD methods for database m
 
 ---
 
-## Reflection: What did I learn?
 
-Each category forced me to learn about C++ coding in "the wild." 
-
-### Category One: Software Engineering
-
-- Learned how to use best practice tools:
-    - CMake
-    - Doxygen
-    - Markdown
-- Learned how separation of concerns can improve system clarity by isolating concerns like data and presentation.
-- Gained an increased understanding of layered architecture and how tight coupling between modules quickly becomes overly complex.
-- Learned to decide the responsibilities of modules and assign them per class based on their purpose.
-- Designed clear interfaces using headers without exposing internal details.
-- Demonstrated the perks of object-oriented code in a system's complexity. 
-- Learned to apply encapsulation instead of treating all classes like data structures. 
-- Understood the constructor design. 
-- Learned separation in headers and source files. 
-- Gained experience in circular dependencies.
-- Learned to bias small classes with a focused purpose.
-- Recognized how monolithic designs can cripple testing and reuse.
-- Learned how to anticipate future requirements.
-- Learned to write self-documenting code. 
-- Learned that minimizing headers introduces Weaknesses.
-- Garnered more confidence in refactoring, knowing I won't break the code; and if I do, I'll fix it.
-
-### Category 2: Data Structures & Algorithms
-
-- Learned to properly decide an algorithm's choices driven by data size, input characteristics, and usage patterns instead of just optimized code.
-- Gained insights into simpler algorithms that can outperform complex ones thanks to constant factors.
-- Learned to evaluate trade-offs between time complexity, space complexity, and code maintainability.
-- Developed a strong rationale for determining the best, average, and worst-case behaviors.
-- Learned how algorithmic inefficiencies are only visible in larger datasets.
-- Learned the specific quirks in choosing containers like vector, map, and unordered_map, which affect the algorithm's performance.
-- Learned to design data structures with healthy access patterns, not for data representation (preReq vectors vs preReq objects).
-- Gained experience in developing polymorphic code using swap algorithms.
-- Learned that theoretical complexity must be proven with data-based evidence.
-- Learned to use performance data to justify design choices rather than comfort or theory. 
-- Learned to validate algorithms for empty inputs, malformed data, or single-element datasets.
-- Learned to build defensive checks in regards to performance.
-- Demonstrated how to communicate algorithmic decisions in non-technical terms.
-
-
-### Category 3: Database Management
-
-- Learned to translate real-world requirements into normalized schemas.
-- Gained experience in defining constraints to force correct data formats.
-- Learned how schema design has long-term implications for future revisions.
-- Learned how to use primary keys, uniqueness constraints, and Not Null enforcement. 
-- Demonstrated how databases can prevent bugs that are not caught in application checks.
-- Demonstrated why files are a poor choice in concurrency, scale, and complexity concerns. 
-- Learned to write parameterized queries to avoid injection vulnerabilities. 
-- Learned how to separate data access logic from business logic. 
-- Gained experience in designing layers to isolate the SQLite database from the application code. 
-- Learned how to use the SQLite library in C++.
-- Demonstrated how database connection failures and query errors are handled gracefully.
-- Demonstrated how to log database interactions for debugging, traceability, and security. 
-- Demonstrated how user authentication can be enforced.
-- Understood how database constraints can complement and enforce secure coding.
-- Learned how database systems can and should reflect the system's entire architecture.
-- Learned the process of reasoning how data will flow across the system's layers.
-
----
