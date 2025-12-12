@@ -86,6 +86,9 @@ Each category forced me to learn about computer science as a whole. Each categor
 
 [CS300: Data Structures And Algorithms](https://github.com/LaplaceOwl7/Data-Structures-And-Algorithms)
 
+### Code Review
+
+[Code Review of the Original Code](https://youtu.be/naC4lX37uyY)
 ### After Enhancements
 
 [CS:499 Project](https://github.com/LaplaceOwl7/CS499-CapStone-AlgorithmicAnswers)
